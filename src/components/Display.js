@@ -3,7 +3,17 @@ import styled from "styled-components";
 
 const axios = require("axios");
 
-const Container = styled.div``;
+const Container = styled.div`
+  .display__form--input {
+    border: 4px solid #5b5b5b;
+    font-weight: 400;
+    color: #5b5b5b;
+  }
+  .display__title {
+    width: 60%;
+    margin: 2% auto;
+  }
+`;
 
 function Display(props) {
   const [dataState, setDataState] = useState("Data");
@@ -40,8 +50,9 @@ function Display(props) {
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="display__form">
         <input
+          className="display__form--input"
           type="date"
           name="date"
           value={date.date}
@@ -50,7 +61,7 @@ function Display(props) {
       </form>
 
       <div>
-        <h2>{dataState.title}</h2>
+        <h2 className="display__title">{dataState.title}</h2>
         <img className="photoNasa" src={dataState.url}></img>
       </div>
     </Container>
